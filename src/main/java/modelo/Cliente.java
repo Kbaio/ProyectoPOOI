@@ -20,6 +20,7 @@ public class Cliente {
     private String direccion;
     private char sexo;
     private Calendar fechaNacimiento;
+    private int numeroCasillero;
     private int paquetesRecibidos = 0;
 
     public Cliente(int id, String nombre, String correo, int telefono, String direccion, char sexo, Calendar fechaNacimiento) {
@@ -54,6 +55,10 @@ public class Cliente {
 
     public char getSexo() {
         return sexo;
+    }
+
+    public int getNumeroCasillero() {
+        return numeroCasillero;
     }
 
     public Calendar getFechaNacimiento() {
@@ -95,4 +100,9 @@ public class Cliente {
     public void setPaquetesRecibidos(int paquetesRecibidos) {
         this.paquetesRecibidos = paquetesRecibidos;
     }
+
+    public void setNumeroCasillero(int numeroCasillero) {
+        this.numeroCasillero = numeroCasillero;
+    }
+    
 }

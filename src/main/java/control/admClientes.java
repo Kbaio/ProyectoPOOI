@@ -17,14 +17,17 @@ import modelo.Cliente;
 public class admClientes {
     private ArrayList<Cliente> listaClientes; 
 
-    public admClientes(ArrayList<Cliente> listaClientes) {
-        this.listaClientes = listaClientes;
+    public admClientes() {
+        listaClientes = new ArrayList<>();
     }
     
-    public boolean agregarCliente(int id, String nombre, String correo, int telefono, String direccion, char sexo, Calendar fechaNacimiento){
-        for(int i = 0; i < listaClientes.size(); i++){
+    public boolean agregarCliente(int id, String nombre, String correo, int telefono, String direccion, char sexo, Calendar fechaNacimiento)
+    {
+        for(int i = 0; i < listaClientes.size(); i++)
+        {
             Cliente cActual = listaClientes.get(i);
-            if(cActual.getId() == id){
+            if(cActual.getId() == id)
+            {
                 return false;
             }
         }
@@ -33,25 +36,41 @@ public class admClientes {
         return true;
     }
     
-    public Cliente consultaCliente(int id){
-        for(int i = 0 ; i < listaClientes.size(); i++){
+    public Cliente consultaCliente(int id)
+    {
+        for(int i = 0 ; i < listaClientes.size(); i++)
+        {
             Cliente cActual = listaClientes.get(i);
-            if(cActual.getId() == id){
+            if(cActual.getId() == id)
+            {
                 return cActual;
             }
         }
         return null;
     }
     
-    public boolean eliminarCliente(int id){
-        for(int i = 0; i < listaClientes.size();i++){
+    public boolean eliminarCliente(int id)
+    {
+        for(int i = 0; i < listaClientes.size();i++)
+        {
             Cliente cActual = listaClientes.get(i);
-            if(cActual.getId() == id){
+            if(cActual.getId() == id)
+            {
                 listaClientes.remove(i);
                 return true;
             }
         }
         return false;
     }
-    
+    public boolean asignarCasillero(int id,int numcasillero){
+                for(int i = 0; i < listaClientes.size();i++){
+                Cliente cActual = listaClientes.get(i);
+                if(cActual.getId() == id)
+                {
+                    cActual.setNumeroCasillero(numcasillero);
+                    return true;
+                }
+        }
+        return false;
+    }
 }

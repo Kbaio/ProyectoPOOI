@@ -24,12 +24,11 @@ public class Entregables {
     private Paquete paquete;
     private Revista revista;
     //----------------------------
-    public Entregables(int id, boolean estado, String descripcion, String remitente, Calendar retiro, Calendar registro, Sobre sobre, Paquete paquete, Revista revista) {
+    public Entregables(int id, boolean estado, String descripcion, String remitente, Calendar registro, Sobre sobre, Paquete paquete, Revista revista) {
         this.id = id;
         this.estado = estado;
         this.descripcion = descripcion;
         this.remitente = remitente;
-        this.retiro = retiro;
         this.registro = registro;
         this.sobre = sobre;
         this.paquete = paquete;
@@ -107,4 +106,5 @@ public class Entregables {
     public void setRevista(Revista revista) {
         this.revista = revista;
     }    
+    
 }
