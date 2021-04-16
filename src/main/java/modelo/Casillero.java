@@ -13,12 +13,11 @@ import java.util.ArrayList;
  */
 public class Casillero {
     private int numero;
-    private boolean estado;
+    private boolean estado = false;
     private ArrayList<Entregables> listaEntregables = new ArrayList();
 
-    public Casillero(int numero, boolean estado) {
+    public Casillero(int numero) {
         this.numero = numero;
-        this.estado = estado;
     }
 
     public int getNumero() {
