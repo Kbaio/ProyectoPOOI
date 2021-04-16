@@ -23,6 +23,14 @@ public class admCasilleros {
     public admCasilleros() {
         listaCasilleros = new ArrayList<>();
     }
+
+    public ArrayList<Casillero> getListaCasilleros() {
+        return listaCasilleros;
+    }
+
+    public void setListaCasilleros(ArrayList<Casillero> listaCasilleros) {
+        this.listaCasilleros = listaCasilleros;
+    }
     
     public boolean agregarCasilleros(int numCasilleros)
         /*
@@ -58,6 +66,11 @@ public class admCasilleros {
     }
     
     public boolean modificarEstado(int numCasillero){
+        /*
+        Esta funcion se encarga de modificar el estado de un casillero, 
+        recibe como paramero el numero del casillero y cambia su estado ya sea 
+        de ocupado a desocupado o desocupado a ocupado.
+        */
         for(int i = 0; i < listaCasilleros.size(); i++)
         {
             Casillero cActual = listaCasilleros.get(i);
@@ -70,4 +83,7 @@ public class admCasilleros {
         return false;
     }
     
+    public String test(){
+        return "Hola mundo";
+    }
 }
