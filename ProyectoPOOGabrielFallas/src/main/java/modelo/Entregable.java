@@ -11,7 +11,7 @@ import java.util.Calendar;
  *
  * @author david
  */
-public class Entregables {
+public class Entregable {
     private int id;
     private boolean estado;
     private String descripcion;
@@ -24,22 +24,41 @@ public class Entregables {
     private Paquete paquete;
     private Revista revista;
     //----------------------------
-    public Entregables(int id, boolean estado, String descripcion, String remitente, Calendar registro, Sobre sobre, Paquete paquete, Revista revista) {
+    public Entregable(int id, boolean estado, String descripcion, String remitente, Calendar registro, Sobre sobre) {
         this.id = id;
         this.estado = estado;
         this.descripcion = descripcion;
         this.remitente = remitente;
         this.registro = registro;
         this.sobre = sobre;
+    }
+
+    public Entregable(int id, boolean estado, String descripcion, String remitente, Calendar retiro, Calendar registro, Paquete paquete) {
+        this.id = id;
+        this.estado = estado;
+        this.descripcion = descripcion;
+        this.remitente = remitente;
+        this.retiro = retiro;
+        this.registro = registro;
         this.paquete = paquete;
+    }
+
+    public Entregable(int id, boolean estado, String descripcion, String remitente, Calendar retiro, Calendar registro, Revista revista) {
+        this.id = id;
+        this.estado = estado;
+        this.descripcion = descripcion;
+        this.remitente = remitente;
+        this.retiro = retiro;
+        this.registro = registro;
         this.revista = revista;
     }
+    
 
     public int getId() {
         return id;
     }
 
-    public boolean isEstado() {
+    public boolean getEstado() {
         return estado;
     }
 
@@ -106,5 +125,26 @@ public class Entregables {
     public void setRevista(Revista revista) {
         this.revista = revista;
     }    
+
+    public String toStringS() {
+        return "Entregable{" + "id=" + id + ", estado=" + estado 
+                + ", descripcion=" + descripcion + ", remitente=" 
+                + remitente + ", retiro=" + retiro + ", registro=" + registro 
+                + ", sobre=" + sobre + '}';
+    }
+    public String toStringP() {
+        return "Entregable{" + "id=" + id + ", estado=" + estado 
+                + ", descripcion=" + descripcion + ", remitente=" 
+                + remitente + ", retiro=" + retiro + ", registro=" + registro 
+                + ", paquete=" + paquete + '}';
+    }
+    public String toStringR() {
+        return "Entregable{" + "id=" + id + ", estado=" + estado 
+                + ", descripcion=" + descripcion + ", remitente=" 
+                + remitente + ", retiro=" + retiro + ", registro=" + registro 
+                + ", revista=" + revista + '}';
+    }
+    
+
     
 }

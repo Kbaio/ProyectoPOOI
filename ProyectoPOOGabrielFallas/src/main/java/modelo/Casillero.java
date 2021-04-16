@@ -14,7 +14,9 @@ import java.util.ArrayList;
 public class Casillero {
     private int numero;
     private boolean estado = false;
-    private ArrayList<Entregables> listaEntregables = new ArrayList();
+    private ArrayList<Entregable> listaEntregables = new ArrayList();
+    //nuevo
+    private int clienteId;
 
     public Casillero(int numero) {
         this.numero = numero;
@@ -24,11 +26,11 @@ public class Casillero {
         return numero;
     }
 
-    public boolean isEstado() {
+    public boolean getEstado() {
         return estado;
     }
 
-    public ArrayList<Entregables> getListaEntregables() {
+    public ArrayList<Entregable> getListaEntregables() {
         return listaEntregables;
     }
 
@@ -40,7 +42,19 @@ public class Casillero {
         this.estado = estado;
     }
 
-    public void setListaEntregables(ArrayList<Entregables> listaEntregables) {
+    public void setListaEntregables(ArrayList<Entregable> listaEntregables) {
         this.listaEntregables = listaEntregables;
     }
+    //nuevo
+
+    public int getClienteId() {
+        return clienteId;
+    }
+
+    public void setClienteId(int clienteId) {
+        this.clienteId = clienteId;
+    }
+    
+
+    
 }

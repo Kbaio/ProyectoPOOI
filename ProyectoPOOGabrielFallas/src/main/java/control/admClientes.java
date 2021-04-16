@@ -20,8 +20,8 @@ public class admClientes {
     public admClientes() {
         listaClientes = new ArrayList<>();
     }
-    
-    public boolean agregarCliente(int id, String nombre, String correo, int telefono, String direccion, char sexo, Calendar fechaNacimiento)
+    //nuevo
+    public boolean agregarCliente(int id, String nombre, String correo, int telefono, String direccion, char sexo, Calendar fechaNacimiento, int numCasillero)
     {
         for(int i = 0; i < listaClientes.size(); i++)
         {
@@ -31,7 +31,7 @@ public class admClientes {
                 return false;
             }
         }
-        Cliente nuevoCliente = new Cliente(id,nombre,correo,telefono,direccion,sexo,fechaNacimiento); 
+        Cliente nuevoCliente = new Cliente(id,nombre,correo,telefono,direccion,sexo,fechaNacimiento, numCasillero); 
         listaClientes.add(nuevoCliente);
         return true;
     }

@@ -23,7 +23,10 @@ public class Cliente {
     private int numeroCasillero;
     private int paquetesRecibidos = 0;
 
-    public Cliente(int id, String nombre, String correo, int telefono, String direccion, char sexo, Calendar fechaNacimiento) {
+    public Cliente() {
+    }
+    //nuevo
+    public Cliente(int id, String nombre, String correo, int telefono, String direccion, char sexo, Calendar fechaNacimiento, int numeroCasillero) {
         this.id = id;
         this.nombre = nombre;
         this.correo = correo;
@@ -31,7 +34,10 @@ public class Cliente {
         this.direccion = direccion;
         this.sexo = sexo;
         this.fechaNacimiento = fechaNacimiento;
+        this.numeroCasillero = numeroCasillero;
     }
+
+    
 
     public int getId() {
         return id;
