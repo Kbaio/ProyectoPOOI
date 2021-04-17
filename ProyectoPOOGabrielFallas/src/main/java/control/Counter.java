@@ -120,4 +120,8 @@ public class Counter {
         }
     }*/
     
+    public String test(){
+        return "Hola mundo";
+    }
+    
 }
