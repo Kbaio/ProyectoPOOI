@@ -113,14 +113,47 @@ public class counter {
        return matcher.matches();
        
     }        
+    
+    
+    public String registrarCliente(int id, String nombre, String correo,String telefono, 
+            String direccion, String sexo,String fechaNacimiento){
+        if(verificarUsuario(id) == true)
+        {
+            if(validarNumero(telefono) == true)
+            {
+                if(validarCorreo(correo) == true)
+                {
+                    int casillero = casilleroDisponible(id);
+                    if(casillero != 0)
+                    {
+                        admClientes.agregarCliente(id, nombre, correo, telefono,direccion, sexo, fechaNacimiento, casillero);
+                        return "El usuario pudo ser registrado con exito.\nEl numero de casillero asignado es el: " + casillero;
+                    }
+                    return "No hay Casilleros Disponibles";
+                }
+                return "El formato del correo electronico no es valido.";
+            }
+            return "El formato del numero telefonico no es valido, su longitud debe ser de 8 digitos.";
+        }
+       return  "La identificacion ya esta asociada a un casillero.";
+    }
+public boolean verificarUsuario(int id)
+    {
+        ArrayList<Casillero> listaCasilleros = admCasilleros.getListaCasilleros();
+        for(int k =0; k< listaCasilleros.size();k++){
+            Casillero cActual =  listaCasilleros.get(k);
+            if(cActual.getClienteId() == id){
+                return  false;
+            }
+        }
+        return true;
+    }
+    
+    /*
     public String registrarCliente(int id, String nombre, String correo,  
             String telefono, String direccion, String sexo, 
             String fechaNacimiento){
-        /*
-        Esta funcion se encarga de agregar un cliente con los datos requeridos 
-        y asigna un casillero automaticamente, tambien cambia el estado del 
-        casillero a ocupado.
-        */
+        
         ArrayList<Casillero> listaCasilleros = admCasilleros.getListaCasilleros();
         for(int k =0; k< listaCasilleros.size();k++){
             Casillero cActual =  listaCasilleros.get(k);
@@ -148,7 +181,7 @@ public class counter {
         }
         return "No existen casilleros disponibles.";
     }
-    
+    */
     public Cliente consultarCliente(int id)
     {
         return admClientes.consultaCliente(id);
