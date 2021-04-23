@@ -7,16 +7,20 @@ package vista;
 
 import control.admClientes;
 import control.counter;
+import java.util.ArrayList;
+import modelo.Cliente;
 
 /**
  *
  * @author gmora
  */
 public class FrConsultarClientes extends javax.swing.JDialog {
-    private counter controlCounter;
+    counter controlCounter;
     admClientes admClientes = new admClientes();
     /**
      * Creates new form FrConsultarClientes
+     * @param parent
+     * @param modal
      */
     public FrConsultarClientes( javax.swing.JDialog parent, boolean modal) {
         super(parent, modal);
@@ -25,6 +29,7 @@ public class FrConsultarClientes extends javax.swing.JDialog {
     public FrConsultarClientes( javax.swing.JDialog parent, boolean modal,counter elCounter) {
         super(parent, modal);
         initComponents();
+        controlCounter = elCounter; 
     }
 
     /**
@@ -102,7 +107,7 @@ public class FrConsultarClientes extends javax.swing.JDialog {
 
     private void consultarClientesActionPerformed(java.awt.event.ActionEvent evt) {                                                  
         // TODO add your handling code here:
-        taConsultaClientes.setText(controlCounter.mostrarClientes());
+        taConsultaClientes.setText(controlCounter.getLClientes().toString());
         
     }                                                 
 
@@ -154,3 +159,4 @@ public class FrConsultarClientes extends javax.swing.JDialog {
     private javax.swing.JTextArea taConsultaClientes;
     // End of variables declaration                   
 }
+
