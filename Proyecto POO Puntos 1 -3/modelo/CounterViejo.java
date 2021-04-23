@@ -11,14 +11,14 @@ import java.util.ArrayList;
  *
  * @author david
  */
-public class Counter {
+public class CounterViejo {
     private String nombre;
     private int cedula;
     private String Direccion;
     private ArrayList<Casillero> listaCasilleros = new ArrayList();
     private ArrayList<Cliente> listaClientes = new ArrayList();
 
-    public Counter(String nombre, int cedula, String Direccion) {
+    public CounterViejo(String nombre, int cedula, String Direccion) {
         this.nombre = nombre;
         this.cedula = cedula;
         this.Direccion = Direccion;

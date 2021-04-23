@@ -6,12 +6,8 @@
 package control;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import modelo.Casillero;
 import modelo.Entregable;
-import modelo.Paquete;
-import modelo.Revista;
-import modelo.Sobre;
 
 /**
  *
@@ -24,17 +20,15 @@ public class admCasilleros {
         listaCasilleros = new ArrayList<>();
     }
     
-    public boolean agregarCasilleros(int numCasilleros)
+    public boolean agregarCasilleros(int numCasilleros){
         /*
         Esta funcion se encarga de crear los casilleros requeridos en un counter, 
         se recibe el numero de casilleros que se quiere añadir y automaticamente 
         los crea y los añade a la lista de casilleros.
         */
-    {
         int primero = 1000;
-        for(int i = 0; i < numCasilleros; i++)
-        {
-            Casillero nCasillero = new Casillero(primero+i);
+        for(int i = 0; i < numCasilleros; i++){
+            Casillero nCasillero = new Casillero(primero+i, false);
             listaCasilleros.add(nCasillero);
         }
         return true;
@@ -64,6 +58,9 @@ public class admCasilleros {
             if(cActual.getNumero() == numCasillero)
             {
                 cActual.setEstado(!cActual.getEstado());
+                cActual.setClienteId(0);
+                ArrayList <Entregable> listaVacia= new ArrayList<>(); 
+                cActual.setListaEntregables(listaVacia);
                 return true;
             } 
         }
@@ -74,8 +71,9 @@ public class admCasilleros {
         return listaCasilleros;
     }
 
-    public void setListaCasilleros(ArrayList<Casillero> listaCasilleros) {
-        this.listaCasilleros = listaCasilleros;
+    @Override
+    public String toString() {
+        return "admCasilleros{" + "listaCasilleros=" + listaCasilleros + '}';
     }
     
     

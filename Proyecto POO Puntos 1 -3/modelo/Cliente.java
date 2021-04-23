@@ -5,8 +5,7 @@
  */
 package modelo;
 
-import java.util.Calendar;
-import java.util.logging.Logger;
+import java.util.Date;
 
 /**
  *
@@ -16,24 +15,24 @@ public class Cliente {
     private int id;
     private String nombre;
     private String correo;
-    private int telefono;
+    private String telefono;
     private String direccion;
-    private char sexo;
-    private Calendar fechaNacimiento;
+    private String sexo;
+    private Date fechaNacimiento;
     private int numeroCasillero;
     private int paquetesRecibidos = 0;
 
     public Cliente() {
     }
     //nuevo
-    public Cliente(int id, String nombre, String correo, int telefono, String direccion, char sexo, Calendar fechaNacimiento, int numeroCasillero) {
+    public Cliente(int id, String nombre, String correo, String telefono, String direccion, String sexo, String fechaNacimiento, int numeroCasillero) {
         this.id = id;
         this.nombre = nombre;
         this.correo = correo;
         this.telefono = telefono;
         this.direccion = direccion;
         this.sexo = sexo;
-        this.fechaNacimiento = fechaNacimiento;
+        this.fechaNacimiento = new Date (fechaNacimiento);
         this.numeroCasillero = numeroCasillero;
     }
 
@@ -51,7 +50,7 @@ public class Cliente {
         return correo;
     }
 
-    public int getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
@@ -59,7 +58,7 @@ public class Cliente {
         return direccion;
     }
 
-    public char getSexo() {
+    public String getSexo() {
         return sexo;
     }
 
@@ -67,7 +66,7 @@ public class Cliente {
         return numeroCasillero;
     }
 
-    public Calendar getFechaNacimiento() {
+    public Date getFechaNacimiento() {
         return fechaNacimiento;
     }
 
@@ -87,7 +86,7 @@ public class Cliente {
         this.correo = correo;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 
@@ -95,12 +94,12 @@ public class Cliente {
         this.direccion = direccion;
     }
 
-    public void setSexo(char Sexo) {
+    public void setSexo(String Sexo) {
         this.sexo = Sexo;
     }
 
-    public void setFechaNacimiento(Calendar fechaNacimiento) {
-        this.fechaNacimiento = fechaNacimiento;
+    public void setFechaNacimiento(String sFecha){ 
+        fechaNacimiento = new Date(sFecha);
     }
 
     public void setPaquetesRecibidos(int paquetesRecibidos) {
@@ -109,6 +108,11 @@ public class Cliente {
 
     public void setNumeroCasillero(int numeroCasillero) {
         this.numeroCasillero = numeroCasillero;
+    }
+
+    @Override
+    public String toString() {
+        return "Cliente{" + "id=" + id + ", nombre=" + nombre + ", correo=" + correo + ", telefono=" + telefono + ", direccion=" + direccion + ", sexo=" + sexo + ", fechaNacimiento=" + fechaNacimiento + ", numeroCasillero=" + numeroCasillero + ", paquetesRecibidos=" + paquetesRecibidos + '}';
     }
     
 }

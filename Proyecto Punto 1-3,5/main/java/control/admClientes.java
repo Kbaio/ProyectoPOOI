@@ -6,7 +6,6 @@
 package control;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import modelo.Cliente;
 
 
@@ -21,13 +20,12 @@ public class admClientes {
         listaClientes = new ArrayList<>();
     }
     //nuevo
-    public boolean agregarCliente(int id, String nombre, String correo, int telefono, String direccion, char sexo, Calendar fechaNacimiento, int numCasillero)
+    public boolean agregarCliente(int id, String nombre, String correo, String telefono, String direccion, String sexo, String fechaNacimiento, int numCasillero)
     {
         for(int i = 0; i < listaClientes.size(); i++)
         {
             Cliente cActual = listaClientes.get(i);
-            if(cActual.getId() == id)
-            {
+            if(cActual.getId() == id){
                 return false;
             }
         }
@@ -73,4 +71,32 @@ public class admClientes {
         }
         return false;
     }
+
+    public ArrayList<Cliente> getListaClientes() {
+        return listaClientes;
+    }
+
+    public float determinarDescuento(String nombreCliente){
+        for(int i = 0; i < listaClientes.size(); i++){
+            Cliente cActual = listaClientes.get(i);
+            if(cActual.getNombre().equalsIgnoreCase(nombreCliente)){
+                int numPaquetes = cActual.getPaquetesRecibidos();
+                if(numPaquetes >= 10){
+                    return (float) 0.05;
+                }
+                else if(numPaquetes >= 20){
+                    return (float) 0.1;
+                }
+                else{
+                    return 0;
+                }
+            }
+        }
+        return 0;
+    }
+    @Override
+    public String toString() {
+        return "admClientes{" + "listaClientes=" + listaClientes + '}';
+    }
+    
 }

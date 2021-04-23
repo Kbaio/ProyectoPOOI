@@ -6,11 +6,12 @@
 package control;
 
 import java.util.ArrayList;
-import modelo.Entregable;
-import control.admCasilleros;
-import java.util.Calendar;
 import java.util.Date;
+import modelo.Entregable;
 import modelo.Casillero;
+import modelo.Paquete;
+import modelo.Revista;
+import modelo.Sobre;
 /**
  *
  * @author PC
@@ -23,51 +24,102 @@ public class admEntregables {
         listaEntregables = new ArrayList<>();
     }
     static admCasilleros admCasilleros = new admCasilleros(); // representa la asociación  dirigida
-    public boolean mostrarEstadoCasillero(int numCasillero){
-        for(int i = 0; i < admCasilleros.getListaCasilleros().size(); i++){
-            Casillero cActual = admCasilleros.getListaCasilleros().get(i);
+    public String registrarEntregables(int id, boolean estado, String descripcion, 
+            String remitente, String registro, Sobre sobre, int numCasillero
+            , ArrayList<Casillero> listaCasilleros, int idCliente){
+        for(int i = 0; i < listaCasilleros.size(); i++){
+            Casillero cActual = listaCasilleros.get(i);
+            System.out.println(cActual.getNumero());
+            if(cActual.getNumero() == numCasillero){
+                Entregable nEntregable = new Entregable(id, estado, descripcion, remitente, registro, sobre);
+                ArrayList <Entregable> nuevaLista = cActual.getListaEntregables();
+                nuevaLista.add(nEntregable);
+                cActual.setListaEntregables(nuevaLista);
+                cActual.setEstado(false);
+                cActual.setClienteId(idCliente);
+                listaEntregables.add(nEntregable);
+                return "El entregable ha sido registrado con exito.";
+            }   
+        }
+        return "El numero del casillero ingresado no existe";
+    }
+    public String registrarEntregables(int id, boolean estado, String descripcion, 
+            String remitente, String registro, Paquete paquete, int numCasillero
+            , ArrayList<Casillero> listaCasilleros, int idCliente){
+        for(int i = 0; i < listaCasilleros.size(); i++){
+            Casillero cActual = listaCasilleros.get(i);
+            if(cActual.getNumero() == numCasillero){
+                Entregable nEntregable = new Entregable(id, estado, descripcion, remitente, registro, paquete);
+                ArrayList <Entregable> nuevaLista = cActual.getListaEntregables();
+                nuevaLista.add(nEntregable);
+                cActual.setListaEntregables(nuevaLista);
+                cActual.setEstado(false);
+                cActual.setClienteId(idCliente);
+                listaEntregables.add(nEntregable);
+                return "El entregable ha sido registrado con exito.";
+            }   
+        }
+
+        return "El numero del casillero ingresado no existe";
+    }
+    public String registrarEntregables(int id, boolean estado, String descripcion, 
+            String remitente, String registro, Revista revista, int numCasillero
+            , ArrayList<Casillero> listaCasilleros, int idCliente){
+        for(int i = 0; i < listaCasilleros.size(); i++){
+            Casillero cActual = listaCasilleros.get(i);
+            if(cActual.getNumero() == numCasillero){
+                Entregable nEntregable = new Entregable(id, estado, descripcion, remitente, registro, revista);
+                ArrayList <Entregable> nuevaLista = cActual.getListaEntregables();
+                nuevaLista.add(nEntregable);
+                cActual.setListaEntregables(nuevaLista);
+                cActual.setClienteId(idCliente);
+                cActual.setEstado(false);
+                listaEntregables.add(nEntregable);
+                return "El entregable ha sido registrado con exito.";
+            }   
+        }
+        return "El numero del casillero ingresado no existe";
+    }
+    public String mostrarEstadoCasillero(int numCasillero , ArrayList<Casillero> listaCasilleros){
+        for(int i = 0; i < listaCasilleros.size(); i++){
+            Casillero cActual = listaCasilleros.get(i);
             if(cActual.getNumero() == numCasillero || cActual.getClienteId() == numCasillero){
-                boolean estado = cActual.getEstado();
-                return true;
-            }
-            
+                if(cActual.getListaEntregables().size() == 0){
+                    return "Libre";
+                }
+                else{
+                    return "Ocupado";
+                }
+            } 
         }
-        return false;
+        return "No existen casilleros con el numero ingresado.";
     }
-    public String detalleArticulosRecibidos(Calendar fecha){
+    public String detalleArticulosRecibidos(String fecha){
+        ArrayList<Entregable> paquetesSinEntregar = new ArrayList<>();
+        Date fechaD = new Date(fecha);
         for(int i = 0; i < listaEntregables.size(); i++){
             Entregable eActual = listaEntregables.get(i);
-            if(eActual.getRegistro() == fecha){
-                if(eActual.getPaquete() != null){
-                    return eActual.toStringP();
-                }
-                else if(eActual.getRevista() != null){
-                    return eActual.toStringR();
-                }
-                else if(eActual.getSobre() != null){
-                    return eActual.toStringS();
-                }
+            if(eActual.getRegistro().equals(fechaD) && eActual.getEstado() == false){
+                paquetesSinEntregar.add(eActual);
+            }
+        }
+        if(paquetesSinEntregar.size() == 0){
+            return "No se encontraron paquetes recibidos en la fecha ingresada.";
+        }
+        return paquetesSinEntregar.toString();
+    }
+    public String detalleArticulosRetirados(String fecha){
+        ArrayList<Entregable> paquetesEntregados = new ArrayList<>();
+        Date fechaD = new Date(fecha);
+        for(int i = 0; i < listaEntregables.size(); i++){
+            Entregable eActual = listaEntregables.get(i);
+            if(eActual.getRegistro().equals(fechaD )&& eActual.getEstado() == true){
+                paquetesEntregados.add(eActual);
             }
         }
         return "El casillero ingresado no fue encontrado";
     }
-    public String detalleArticulosRetirados(Calendar fecha){
-        for(int i = 0; i < listaEntregables.size(); i++){
-            Entregable eActual = listaEntregables.get(i);
-            if(eActual.getRetiro() == fecha){
-                if(eActual.getPaquete() != null){
-                    return eActual.toStringP();
-                }
-                else if(eActual.getRevista() != null){
-                    return eActual.toStringR();
-                }
-                else if(eActual.getSobre() != null){
-                    return eActual.toStringS();
-                }
-            }
-        }
-        return "El casillero ingresado no fue encontrado";
-    }
+    /*
     public String detalleArticulosNoRetirados(){
         for(int i = 0; i < listaEntregables.size(); i++){
             Entregable eActual = listaEntregables.get(i);
@@ -138,6 +190,7 @@ public class admEntregables {
         }
         return "No existe el articulo ingresado";
     }
+*/
     public ArrayList<Entregable> getListaEntregables() {
         return listaEntregables;
     }

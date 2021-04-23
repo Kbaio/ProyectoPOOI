@@ -13,15 +13,18 @@ import java.util.ArrayList;
  */
 public class Casillero {
     private int numero;
-    private boolean estado = false;
+    private boolean estado; //false no esta ocupado y true si esta ocupado
     private ArrayList<Entregable> listaEntregables = new ArrayList();
     //nuevo
     private int clienteId;
 
-    public Casillero(int numero) {
-        this.numero = numero;
+    public Casillero() {
     }
 
+    public Casillero(int numero, boolean estado) {
+        this.numero = numero;
+        this.estado = estado;
+    }
     public int getNumero() {
         return numero;
     }
@@ -53,6 +56,11 @@ public class Casillero {
 
     public void setClienteId(int clienteId) {
         this.clienteId = clienteId;
+    }
+
+    @Override
+    public String toString() {
+        return "Casillero{" + "numero=" + numero + ", estado=" + estado + ", listaEntregables=" + listaEntregables + ", clienteId=" + clienteId + '}';
     }
     
 

@@ -5,7 +5,7 @@
  */
 package modelo;
 
-import java.util.Calendar;
+import java.util.Date;
 
 /**
  *
@@ -16,40 +16,40 @@ public class Entregable {
     private boolean estado;
     private String descripcion;
     private String remitente;
-    private Calendar retiro;
-    private Calendar registro;
+    private Date retiro;
+    private Date registro;
     // IMPLEMENTAR INRERFAZ
    //------------------------------- 
     private Sobre sobre;
     private Paquete paquete;
     private Revista revista;
     //----------------------------
-    public Entregable(int id, boolean estado, String descripcion, String remitente, Calendar registro, Sobre sobre) {
+
+    public Entregable(int id, boolean estado, String descripcion, String remitente, String registro, Sobre sobre) {
         this.id = id;
         this.estado = estado;
         this.descripcion = descripcion;
         this.remitente = remitente;
-        this.registro = registro;
+        this.registro = new Date(registro);
         this.sobre = sobre;
     }
+    
 
-    public Entregable(int id, boolean estado, String descripcion, String remitente, Calendar retiro, Calendar registro, Paquete paquete) {
+    public Entregable(int id, boolean estado, String descripcion, String remitente, String registro, Paquete paquete) {
         this.id = id;
         this.estado = estado;
         this.descripcion = descripcion;
         this.remitente = remitente;
-        this.retiro = retiro;
-        this.registro = registro;
+        this.registro = new Date(registro);
         this.paquete = paquete;
     }
 
-    public Entregable(int id, boolean estado, String descripcion, String remitente, Calendar retiro, Calendar registro, Revista revista) {
+    public Entregable(int id, boolean estado, String descripcion, String remitente, String registro, Revista revista) {
         this.id = id;
         this.estado = estado;
         this.descripcion = descripcion;
         this.remitente = remitente;
-        this.retiro = retiro;
-        this.registro = registro;
+        this.registro = new Date(registro);
         this.revista = revista;
     }
     
@@ -70,11 +70,11 @@ public class Entregable {
         return remitente;
     }
 
-    public Calendar getRetiro() {
+    public Date getRetiro() {
         return retiro;
     }
 
-    public Calendar getRegistro() {
+    public Date getRegistro() {
         return registro;
     }
 
@@ -106,11 +106,11 @@ public class Entregable {
         this.remitente = remitente;
     }
 
-    public void setRetiro(Calendar retiro) {
+    public void setRetiro(Date retiro) {
         this.retiro = retiro;
     }
 
-    public void setRegistro(Calendar registro) {
+    public void setRegistro(Date registro) {
         this.registro = registro;
     }
 
@@ -126,24 +126,14 @@ public class Entregable {
         this.revista = revista;
     }    
 
-    public String toStringS() {
+    @Override
+    public String toString() {
         return "Entregable{" + "id=" + id + ", estado=" + estado 
-                + ", descripcion=" + descripcion + ", remitente=" 
-                + remitente + ", retiro=" + retiro + ", registro=" + registro 
-                + ", sobre=" + sobre + '}';
+                + ", descripcion=" + descripcion + ", remitente=" + remitente 
+                + ", retiro=" + retiro + ", registro=" + registro + ", sobre=" 
+                + sobre + ", paquete=" + paquete + ", revista=" + revista + '}';
     }
-    public String toStringP() {
-        return "Entregable{" + "id=" + id + ", estado=" + estado 
-                + ", descripcion=" + descripcion + ", remitente=" 
-                + remitente + ", retiro=" + retiro + ", registro=" + registro 
-                + ", paquete=" + paquete + '}';
-    }
-    public String toStringR() {
-        return "Entregable{" + "id=" + id + ", estado=" + estado 
-                + ", descripcion=" + descripcion + ", remitente=" 
-                + remitente + ", retiro=" + retiro + ", registro=" + registro 
-                + ", revista=" + revista + '}';
-    }
+    
     
 
     
