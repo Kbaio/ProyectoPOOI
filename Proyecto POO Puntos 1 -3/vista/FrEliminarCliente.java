@@ -4,30 +4,36 @@
  * and open the template in the editor.
  */
 package vista;
+
 import control.counter;
+
 /**
  *
  * @author gmora
  */
-public class FrEliminarCliente extends javax.swing.JDialog {
-    counter controlCounter;
+public class FrRegistrarCliente extends javax.swing.JDialog {
+    private counter controlCounter;
     /**
-     * Creates new form FrEliminarCliente
+     * Creates new form FrCliente
+     */
+     
+    /**
+     * Creates new form FrRegistrarClientes
      * @param parent
      * @param modal
      */
-    public FrEliminarCliente(javax.swing.JDialog parent, boolean modal) {
+    
+    public FrRegistrarCliente(javax.swing.JDialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
     
-    public FrEliminarCliente( javax.swing.JDialog parent, boolean modal,counter elCounter) {
+    
+     public FrRegistrarCliente(javax.swing.JDialog parent, boolean modal, counter elCounter) {
         super(parent, modal);
         initComponents();
-        controlCounter = elCounter; 
-    }
-    
-
+        controlCounter = elCounter;   // conecta con el controlador general
+     }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -37,116 +43,256 @@ public class FrEliminarCliente extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        labelElim = new javax.swing.JLabel();
-        txtEliminarCliente = new javax.swing.JTextField();
-        botonEliminarCliente = new javax.swing.JButton();
+        btnClienteTel = new javax.swing.JLabel();
+        txtIdCliente = new javax.swing.JTextField();
+        lblNombreCliente = new javax.swing.JLabel();
+        correoClienteBTN = new javax.swing.JLabel();
+        lbltituloClientes = new javax.swing.JLabel();
+        lblId = new javax.swing.JLabel();
+        txtSexoCliente = new javax.swing.JTextField();
+        btnClienteDireccion = new javax.swing.JLabel();
+        txtFechaNac = new javax.swing.JTextField();
+        ClienteSexo = new javax.swing.JLabel();
+        fechaNacimiento = new javax.swing.JLabel();
+        Registrar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        taMensaje = new javax.swing.JTextArea();
+        taMensajes = new javax.swing.JTextArea();
+        txtNombreCliente = new javax.swing.JTextField();
+        txtCorreoCliente = new javax.swing.JTextField();
+        txtTelefonoCliente = new javax.swing.JTextField();
+        txtDireccionCliente = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Eliminar Cliente");
+        btnClienteTel.setText("Telefono");
 
-        labelElim.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        labelElim.setText("Ingrese el Id del cliente que desea eliminar ");
-
-        txtEliminarCliente.addActionListener(new java.awt.event.ActionListener() {
+        txtIdCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEliminarClienteActionPerformed(evt);
+                txtIdClienteActionPerformed(evt);
             }
         });
 
-        botonEliminarCliente.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        botonEliminarCliente.setText("Eliminar");
-        botonEliminarCliente.addActionListener(new java.awt.event.ActionListener() {
+        lblNombreCliente.setText("Nombre");
+
+        correoClienteBTN.setText("Correo");
+
+        lbltituloClientes.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lbltituloClientes.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbltituloClientes.setText("Registro de Clientes");
+        lbltituloClientes.setToolTipText("");
+
+        lblId.setText("Id");
+
+        txtSexoCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonEliminarClienteActionPerformed(evt);
+                txtSexoClienteActionPerformed(evt);
             }
         });
 
-        taMensaje.setColumns(20);
-        taMensaje.setRows(5);
-        jScrollPane1.setViewportView(taMensaje);
+        btnClienteDireccion.setText("Direccion");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtEliminarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labelElim)
-                            .addComponent(jScrollPane1)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(99, 99, 99)
-                        .addComponent(botonEliminarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(38, 38, 38))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(84, 84, 84))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jLabel1)
-                .addGap(43, 43, 43)
-                .addComponent(labelElim)
-                .addGap(18, 18, 18)
-                .addComponent(txtEliminarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(botonEliminarCliente)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
-        );
+        txtFechaNac.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtFechaNacActionPerformed(evt);
+            }
+        });
+
+        ClienteSexo.setText("Sexo");
+
+        fechaNacimiento.setText("Fecha de Nacimiento");
+
+        Registrar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Registrar.setText("Registrar Cliente");
+        Registrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegistrarActionPerformed(evt);
+            }
+        });
+
+        taMensajes.setColumns(20);
+        taMensajes.setRows(5);
+        jScrollPane1.setViewportView(taMensajes);
+
+        txtNombreCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreClienteActionPerformed(evt);
+            }
+        });
+
+        txtCorreoCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCorreoClienteActionPerformed(evt);
+            }
+        });
+
+        txtTelefonoCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTelefonoClienteActionPerformed(evt);
+            }
+        });
+
+        txtDireccionCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDireccionClienteActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("jLabel1");
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel2.setText("Año/mes/dia");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addComponent(lblId)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(txtIdCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(correoClienteBTN)
+                                        .addComponent(lblNombreCliente))
+                                    .addGap(25, 25, 25)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtNombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtCorreoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(btnClienteDireccion)
+                                        .addComponent(btnClienteTel)
+                                        .addComponent(ClienteSexo))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGap(18, 18, 18)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(txtTelefonoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(txtDireccionCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGap(146, 146, 146)
+                                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(txtSexoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(fechaNacimiento))
+                                .addGap(20, 20, 20)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Registrar)
+                                    .addComponent(txtFechaNac)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(119, 119, 119)
+                        .addComponent(lbltituloClientes))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(153, 153, 153))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(lbltituloClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtIdCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblId))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNombreCliente)
+                    .addComponent(txtNombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtCorreoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(correoClienteBTN))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnClienteTel)
+                    .addComponent(txtTelefonoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnClienteDireccion)
+                    .addComponent(txtDireccionCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ClienteSexo)
+                    .addComponent(txtSexoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(fechaNacimiento)
+                    .addComponent(txtFechaNac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Registrar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
         );
 
         pack();
     }// </editor-fold>                        
 
-    private void txtEliminarClienteActionPerformed(java.awt.event.ActionEvent evt) {                                                   
+    private void txtIdClienteActionPerformed(java.awt.event.ActionEvent evt) {                                             
+        // TODO add your handling code here:
+    }                                            
+
+    private void txtSexoClienteActionPerformed(java.awt.event.ActionEvent evt) {                                               
+        // TODO add your handling code here:
+    }                                              
+
+    private void txtFechaNacActionPerformed(java.awt.event.ActionEvent evt) {                                            
+        // TODO add your handling code here:
+    }                                           
+
+    private void RegistrarActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        // TODO add your handling code here
+        //controlCounter.casilleroDisponible(WIDTH)
+        
+        int elID = Integer.parseInt ( txtIdCliente.getText() );
+        String elNombre = txtNombreCliente.getText();
+        String correo = txtCorreoCliente.getText();
+        String telefono = txtTelefonoCliente.getText();
+        String direccion = txtDireccionCliente.getText();
+        String sexo = txtSexoCliente.getText();
+        String FechaNac=txtFechaNac.getText();
+        String respuesta = controlCounter.registrarCliente(elID, elNombre, correo, telefono, direccion, sexo, FechaNac);
+
+        taMensajes.setText(respuesta );
+
+    }                                         
+
+    private void txtNombreClienteActionPerformed(java.awt.event.ActionEvent evt) {                                                 
+        // TODO add your handling code here:
+    }                                                
+
+    private void txtCorreoClienteActionPerformed(java.awt.event.ActionEvent evt) {                                                 
+        // TODO add your handling code here:
+    }                                                
+
+    private void txtTelefonoClienteActionPerformed(java.awt.event.ActionEvent evt) {                                                   
         // TODO add your handling code here:
     }                                                  
 
-    private void botonEliminarClienteActionPerformed(java.awt.event.ActionEvent evt) {                                                     
+    private void txtDireccionClienteActionPerformed(java.awt.event.ActionEvent evt) {                                                    
         // TODO add your handling code here:
-        int id = Integer.parseInt ( txtEliminarCliente.getText()); 
-        boolean respuesta = controlCounter.eliminarCliente(id);
-        if (respuesta==true){
-            taMensaje.setText("El cliente ha sido eliminado");
-        }
-        else{
-             taMensaje.setText("Id incorrecto, ingrese de nuevo");
-        }
-        System.out.println(controlCounter.getLClientes());
-        System.out.println(controlCounter.getLCasilleros());
-    }                                                    
+    }                                                   
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+      public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -173,7 +319,7 @@ public class FrEliminarCliente extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                FrEliminarCliente dialog = new FrEliminarCliente(new javax.swing.JDialog(), true);
+                FrRegistrarCliente dialog = new FrRegistrarCliente(new javax.swing.JDialog(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -186,12 +332,25 @@ public class FrEliminarCliente extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify                     
-    private javax.swing.JButton botonEliminarCliente;
+    private javax.swing.JLabel ClienteSexo;
+    private javax.swing.JButton Registrar;
+    private javax.swing.JLabel btnClienteDireccion;
+    private javax.swing.JLabel btnClienteTel;
+    private javax.swing.JLabel correoClienteBTN;
+    private javax.swing.JLabel fechaNacimiento;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel labelElim;
-    private javax.swing.JTextArea taMensaje;
-    private javax.swing.JTextField txtEliminarCliente;
+    private javax.swing.JLabel lblId;
+    private javax.swing.JLabel lblNombreCliente;
+    private javax.swing.JLabel lbltituloClientes;
+    private javax.swing.JTextArea taMensajes;
+    private javax.swing.JTextField txtCorreoCliente;
+    private javax.swing.JTextField txtDireccionCliente;
+    private javax.swing.JTextField txtFechaNac;
+    private javax.swing.JTextField txtIdCliente;
+    private javax.swing.JTextField txtNombreCliente;
+    private javax.swing.JTextField txtSexoCliente;
+    private javax.swing.JTextField txtTelefonoCliente;
     // End of variables declaration                   
 }
